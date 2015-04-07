@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+        <link rel="stylesheet" href="css/estilo.css"></link>
+    </h:head>
+    <h:body>
+        <h:form>
+            &nbsp;
+            <ui:composition template="/templates/master.xhtml">
+                <ui:define name="title">
+                    #{msjs.deudorHeader}
+                </ui:define>
+                <ui:define name="encabezado">
+                    <ui:include src="secciones/login/header.xhtml"/>
+                </ui:define>
+
+                <ui:define name="lado">
+                    <ui:include src="secciones/login/ladoizq.xhtml"/>
+                </ui:define>
+                <ui:define name="contenido">
+                    <div align="center">
+                        <h1>BIENVENIDOS A LA CUEVA DE CUATES</h1>
+                    </div>
+                    <hr></hr>
+                    <div align="center">
+                        <h:form>
+                            <h:panelGrid columns="1"> 
+                                <h:outputLabel> 
+                                    Introduzca Su nombre
+                                    <h:inputText id="op1" label="primer"  required="true" value="#{Cuate.user}"/>
+                                    <h:message for="primer" style="color:blue" />
+                                </h:outputLabel>
+                                <h:outputLabel>
+                                    Introduzca su Contraseña
+                                    <h:inputSecret id="segundo" label="segundo" required="true" value="#{Cuate.password}"/>
+                                    <h:message for="segundo" style="color:blue" />
+                                </h:outputLabel>
+
+                            </h:panelGrid>
+                            <hr/>
+                            <div align="center">
+                                <h:panelGroup>
+                                    <h:commandButton value="Entrar" action="#{Cuate.pagoCuotas()}"/> &nbsp; 
+                                    <h:commandButton value="Cancelar"/>                       
+                                </h:panelGroup> 
+                            </div>
+                        </h:form>
+                    </div>
+
+                </ui:define>
+            </ui:composition>
+        </h:form>
+    </h:body>
+</html>
